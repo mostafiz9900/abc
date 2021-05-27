@@ -12,11 +12,15 @@ class HomeView extends GetView<HomeController> {
         title: Text('HomeView'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: GetBuilder<HomeController>(
+        builder: (_) {
+          return Center(
+            child: Text(
+              'HomeView is working',
+              style: TextStyle(fontSize: 20 * controller.animation.value),
+            ),
+          );
+        }
       ),
     );
   }
