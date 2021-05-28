@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:getx_animetions/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -14,11 +15,16 @@ class HomeView extends GetView<HomeController> {
       ),
       body: GetBuilder<HomeController>(
         builder: (_) {
-          return Center(
-            child: Text(
-              'HomeView is working',
-              style: TextStyle(fontSize: 20 * controller.animation.value),
-            ),
+          return Wrap(
+            children: [
+              Center(
+                child: Text(
+                  'HomeView is working',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              ElevatedButton(onPressed: ()=>  Get.toNamed(Routes.LOGIN), child: Text('Login Page'.toUpperCase()))
+            ],
           );
         }
       ),

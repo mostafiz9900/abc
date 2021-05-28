@@ -6,8 +6,8 @@ import 'app/modules/home/controllers/home_controller.dart';
 import 'app/routes/app_pages.dart';
 
 void main()async {
-  final controller=Get.put(HomeController());
- await controller.initAnimationController();
+  // final controller=Get.put(HomeController());
+ // await controller.initAnimationController();
   runApp(MyApp(),
   );
 }
