@@ -6,6 +6,7 @@ class LoginController extends GetxController with SingleGetTickerProviderMixin {
   Animation<double> animationLogo;
   Animation<double> animationTextFieldUser;
   Animation<double> animationText;
+  Animation<double> animation;
   final duration = const Duration(milliseconds: 1000);
 
   int count = 0;
@@ -19,7 +20,14 @@ class LoginController extends GetxController with SingleGetTickerProviderMixin {
       ..addListener(() => update());
     animationText=CurvedAnimation(parent: animationController, curve: Curves.easeIn)
     ..addListener(() => update());
-
+    animation=CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+    animation.addStatusListener((status) {
+      if(status==AnimationStatus.completed){
+        animationController.reverse();
+      }else if(status==AnimationStatus.dismissed){
+        animationController.forward();
+      }
+    });
     animationController.forward();
   }
 
